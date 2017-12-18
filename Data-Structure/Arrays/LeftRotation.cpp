@@ -28,15 +28,13 @@ using namespace std;
 #define null NULL
 
 
-vector<int> leftRotation(vector<int> a, int d) {
-    vector<int> res;
+int sparseArrrays(string a[], string q, int n) {
+    int res = 0;
 
-    for (int l = d; l < a.size(); ++l) {
-        res.pb(a[l]);
-    }
-
-    for (int m = 0; m < d; ++m) {
-        res.pb(a[m]);
+    for (int i = 0; i < n; i++) {
+        if (a[i] == q) {
+            res++;
+        }
     }
 
     return res;
@@ -44,18 +42,19 @@ vector<int> leftRotation(vector<int> a, int d) {
 
 int main() {
     int n;
-    int d;
-    cin >> n >> d;
-    vector<int> a(n);
+    int q;
+    cin >> n;
+    string a[n];
     for (int a_i = 0; a_i < n; a_i++) {
         cin >> a[a_i];
     }
-    vector<int> result = leftRotation(a, d);
-    for (ssize_t i = 0; i < result.size(); i++) {
-        cout << result[i] << (i != result.size() - 1 ? " " : "");
-    }
-    cout << endl;
 
+    cin >> q;
+    string qStr;
+    for (int i = 0; i < q; ++i) {
+        cin >> qStr;
+        cout << sparseArrrays(a, qStr, n) << endl;
+    }
 
     return 0;
 }
